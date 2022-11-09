@@ -1,0 +1,26 @@
+<?php
+ require '../koneksi/koneksi.php';
+
+if($_GET['id'] == 'konfirmasi')
+{
+    $data2[] = $_POST['status'];
+    $data2[] = $_POST['id_booking'];
+    $sql2 = "UPDATE `booking` SET `konfirmasi_pembayaran`= ? WHERE id_booking= ?";
+    $row2 = $koneksi->prepare($sql2);
+    $row2->execute($data2);
+
+    echo '<script>alert("Ubah Status berhasil");history.go(-1);</script>'; 
+}?>
+<?php
+ require '../koneksi/koneksi.php';
+
+if($_GET['id'] == 'konfirmasi2')
+{
+    $data2[] = $_POST['status'];
+    $data2[] = $_POST['id_mobil'];
+    $sql2 = "UPDATE `mobil` SET `status`= ? WHERE id_mobil= ?";
+    $row2 = $koneksi->prepare($sql2);
+    $row2->execute($data2);
+
+    echo '<script>alert("Ubah Status Berhasil");history.go(-1);</script>'; 
+}?>
